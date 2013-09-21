@@ -1,0 +1,3 @@
+#fields	indicator	indicator_type	meta.source
+com	Intel::DOMAIN	my_source
+org	Intel::DOMAIN	my_source
