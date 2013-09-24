@@ -11,9 +11,6 @@
 #			topk
 #			
 
-## FOR SOME REASON EACH OF THESE CAUSES A SEG FAULT
-##	Segmentation fault (core dumped)
-
 #bloomfilter_basic_init(fp: double, capacity: count, name: string &default = "" &optional)
 global my_bloom: opaque of bloomfilter = bloomfilter_basic_init(0.1, 10, "my_bloomfilter_name");
 
@@ -21,4 +18,22 @@ global my_bloom: opaque of bloomfilter = bloomfilter_basic_init(0.1, 10, "my_blo
 global my_bloom2: opaque of bloomfilter = bloomfilter_basic_init2(3, 25, "my_bloomfilter2_name");
 
 #bloomfilter_counting_init(k: count, cells: count, max: count, name: string &default = "" &optional)
-global my_counting_bloom = bloomfilter_counting_init(3, 10, 25, "my_coutning_bloom");
+global my_counting_bloom = bloomfilter_counting_init(3, 10, 25, "my_counting_bloom");
+
+global add_letters: string = "abcdefghijklmnopqrstu";
+global test_letters: string = "abcdefghiwxzy";
+
+for (l in add_letters)
+{
+	bloomfilter_add(my_bloom, l);
+}
+
+for (l in test_letters)
+{
+	# false positives are possible, but not false negatives
+	# 	"inside set (may be wrong)" or "definitely not in set"
+	
+	print fmt("is letter '%s' in the bloomfilter? %d", l, bloomfilter_lookup(my_bloom, l) );
+}
+
+
