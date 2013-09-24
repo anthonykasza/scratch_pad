@@ -16,10 +16,7 @@ DEPENDS="git cmake make gcc g++ flex bison libpcap-dev libssl-dev python-dev swi
 
 # Lazy command path location
 SETCAP_CMD=$( ${WHICH_CMD} setcap );
-WGET_CMD=$( ${WHICH_CMD} wget );
-GZIP_CMD=$( ${WHICH_CMD} gzip );
 D_CMD=$( ${WHICH_CMD} dpkg-query );
-GIT_CMD=$( ${WHICH_CMD} git );
 
 # use aptitude if available, apt-get if not
 APT_CHECK=$(${D_CMD} -W --showformat='${Status}\n' aptitude | grep 'install ok installed');
@@ -83,6 +80,9 @@ function make_nice {
 }
 
 depends;
+WGET_CMD=$( ${WHICH_CMD} wget );
+GZIP_CMD=$( ${WHICH_CMD} gzip );
+GIT_CMD=$( ${WHICH_CMD} git );
 if [[ ${WANT_GEOIP} = "Y" ]]
 then
 	geo_ip_stuff;
