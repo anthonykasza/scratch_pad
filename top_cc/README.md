@@ -9,8 +9,8 @@ Description
 
 Requirements
 ------------
--The Scapy Python module
--GeoIP enabled Bro 
+- The Scapy Python module
+- GeoIP enabled Bro 
 
 Usage
 -----
