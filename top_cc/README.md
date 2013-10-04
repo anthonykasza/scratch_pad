@@ -4,8 +4,8 @@ This code is meant to provide examples on how to use the top k data type. It als
 
 Description
 -----------
-*pinger.py* sends FIN+ACK packets to random IP addresses from an RFC1918 address.
-*topc_cc.bro* draws a rudimentary graph for the top K countries sent packets.
+ **pinger.py** sends FIN+ACK packets to random IP addresses from an RFC1918 address.
+ **topc_cc.bro** draws a rudimentary graph for the top K countries sent packets.
 
 Requirements
 ------------
