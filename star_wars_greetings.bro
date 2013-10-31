@@ -8,7 +8,7 @@ type greeting: function(name: string): string;
 global characters: set[string] = {
 	"Han Brolo",
 	"Broba Fett",
-	"Admiral Ackbar",
+	"Admiral Ackbro",
 	"C3PBro",
 };
 
@@ -19,7 +19,7 @@ global room: set[string] = {};
 global greets: table[string] of greeting = {
 	["Han Brolo"]	= function(name: string): string
 		{ 
-			if (name == "Admir Ackbro")
+			if (name == "Admiral Ackbro")
 			{
 				return "Han Brolo: It's not a trap, Ackbro.";
 			} else if (name == "Broba Fett")
@@ -32,7 +32,7 @@ global greets: table[string] of greeting = {
 		},
 	["Broba Fett"]	= function(name: string): string 
 		{
-			if (name == "Admir Ackbro")
+			if (name == "Admiral Ackbro")
 			{
 				return "Broba Fett: It's not a trap, Ackbro.";
 			} else if (name == "Han Brolo")
@@ -43,7 +43,7 @@ global greets: table[string] of greeting = {
 				return "Broba Fett: ...";
 			}
 		},
-	["Admiral Ackbar"]= function(name: string): string 
+	["Admiral Ackbro"]= function(name: string): string 
 		{
 			return "Admir Ackbro: It's a TRAP!";
 		},
