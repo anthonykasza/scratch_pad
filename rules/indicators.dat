@@ -1,0 +1,6 @@
+#fields	indicator	indicator_type	meta.source	meta.do_notice	meta.if_in	meta.iid
+google.com	Intel::DOMAIN	my_special_source	T	HTTP::IN_HOST_HEADER	IID_1
+google.com	Intel::DOMAIN	my_special_source	T	DNS::IN_REQUEST	IID_2
+cnn.com	Intel::DOMAIN	my_special_source	T	DNS::IN_REQUEST	IID_3
+Wget/1.13.4 (linux-gnu)	Intel::SOFTWARE	my_special_source	T	HTTP::IN_USER_AGENT_HEADER	IID_4
+8.8.8.8	Intel::ADDR	my_special_source	T	Conn::IN_RESP	IID_5
