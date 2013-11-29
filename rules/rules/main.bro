@@ -34,15 +34,24 @@ export {
 
 	# interface to add rules to check for
 	global add_rule: function(r: Rule);
+	# to update a rule, simply re-add it
+
+	# interface to remove rules
+	global delete_rule: function(r: Rule);
 }
 
-global indicator_rules: set[Rule];
+global indicator_rules: set[Rule] &redef;
 
-global indicator_cache: table[string] of set[string];
+global indicator_cache: table[string] of set[string] &redef;
 
 function add_rule(r: Intel::Rule)
 {
 	add Intel::indicator_rules[r];
+}
+
+function delete_rule(r: Intel::Rule)
+{
+	delete Intel::indicator_rules[r];
 }
 
 event Intel::match(s: Seen, items: set[Item]) &priority=-2
