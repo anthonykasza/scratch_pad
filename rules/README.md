@@ -4,7 +4,7 @@ Adding context and layering to intelligence indicators. This package is built on
 
 Description
 -----------
-This package provides extensions for brogrammers to create complex conditional rules based on intelligence indicators. The ultimate goal of something like this would be a framework for context aware (yara)[http://plusvic.github.io/yara]-like network rule sets.
+This package provides extensions for brogrammers to create complex conditional rules based on intelligence indicators. The ultimate goal of something like this would be a framework for context aware [yara](http://plusvic.github.io/yara)-like network rule sets.
 
 Usage
 -----
