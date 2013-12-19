@@ -11,17 +11,20 @@ Usage
 - create indicators (or use the provided ones in indicators.dat)
 - create rules based on the indicators (or use the ones provided)
 	- rules can be read in from a file or added form scriptland similar to indicators
+	- nested rules are supported (but don't mix indicator rules and rule rules)
 - run Bro on an interface
-- cause network traffic that will match the indicators and conditions in your rules
+- cause network traffic that will match the indicators and conditions in your rules (or your rules' rules)
 - look in the notice.log file for Intel::Rule_Match notes
 
 ToDo
 ----
-- extend rules to include nested rules
 - extend rules to support clustering (fraternities)
 	- indicator metadata isn't distributed to workers, this could be problematic
 - considering keying the indicator_cache on values other than connection uids
 	- what about on end point addresses similar to how Intel items can be keyed on a string or an addr?
-- extend the package to include a custom log file
-	- currently everything is dropped into notices (maybe this is a good thing?)
-- consider moving 'rules' its own framework instead of building it into the intel framework
+- support patterns?
+	- this is most likely a rewrite, not an add-on
+- adjust how Intel::URLs are handled 
+	- remove domains from URLs or
+	- create a new type of Intel::URL_PATH 
+- moar robust set of WHERE locations in Intel framework

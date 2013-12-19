@@ -1,5 +1,4 @@
-#fields	rid	i_condition	iids
-RID_1	Intel::AND	IID_1,IID_2,IID_3,IID_5,IID_999
-RID_2	Intel::AND	IID_1,IID_4
-RID_3	Intel::OR	IID_5
-RID_4	Intel::OR	IID_2,IID_3
+#fields	rid	i_condition	iids	rids	r_condition	do_rules_notice
+RID_1	Intel::AND	IID_1,IID_5	-	-	F
+RID_2	Intel::OR	IID_6,IID_7	-	-	F
+RID_3	-	-	RID_1,RID_2	Intel::AND	T
