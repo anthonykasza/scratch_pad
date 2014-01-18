@@ -24,7 +24,4 @@ ToDo
 	- what about on end point addresses similar to how Intel items can be keyed on a string or an addr?
 - support patterns?
 	- this is most likely a rewrite, not an add-on
-- adjust how Intel::URLs are handled 
-	- remove domains from URLs or
-	- create a new type of Intel::URL_PATH 
 - moar robust set of WHERE locations in Intel framework

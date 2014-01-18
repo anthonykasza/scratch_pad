@@ -4,5 +4,5 @@ www.google.com	Intel::DOMAIN	my_special_source	F	DNS::IN_REQUEST	IID_2
 www.cnn.com	Intel::DOMAIN	my_special_source	F	HTTP::IN_HOST_HEADER	IID_3
 www.cnn.com	Intel::DOMAIN	my_special_source	F	DNS::IN_REQUEST	IID_4
 Wget/1.13.4 (linux-gnu)	Intel::SOFTWARE	my_special_source	F	HTTP::IN_USER_AGENT_HEADER	IID_5
-www.google.com/foo	Intel::URL	my_special_source	F	HTTP::IN_URL	IID_6
-www.google.com/bar	Intel::URL	my_special_source	F	HTTP::IN_URL	IID_7
+/foo	Intel::URL_PATH	my_special_source	F	HTTP::IN_URL_PATH	IID_6
+/bar	Intel::URL_PATH	my_special_source	F	HTTP::IN_URL_PATH	IID_7
