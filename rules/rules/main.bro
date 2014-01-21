@@ -45,8 +45,10 @@ export {
 	global delete_rule: function(r: Rule);
 }
 
+# Rule indxed by rid, rid=>[Rule]
 global indicator_rules: table[string] of Rule &redef;
 
+# set of indicators indexed by connection UID, uid=>[iid, iid, iid]
 global indicator_cache: table[string] of set[string] &redef;
 
 function add_rule(r: Intel::Rule)
@@ -240,6 +242,7 @@ event connection_state_remove(c: connection)
 		# If the rule consists of a set of indicators and no nested rules
 		if ( (|Intel::indicator_rules[r]$rids| == 0) && (|Intel::indicator_rules[r]$iids| > 0) )
 		{
+			# check it's indicator logic and notice
 			if ( check_indicator_logic(Intel::indicator_rules[r], c) )
 			{
 				if (Intel::indicator_rules[r]$do_rules_notice) NOTICE( [$note=Intel::Rule_Notice, $conn=c, $msg=fmt("matched on rule: %s", Intel::indicator_rules[r]$rid)] );
@@ -249,21 +252,22 @@ event connection_state_remove(c: connection)
 		# If the rule consists of nested rules and no indicators
 		else if ( (|Intel::indicator_rules[r]$rids| > 0) && (|Intel::indicator_rules[r]$iids| == 0) )
 		{
+			# check it's rule logic and notice
 			if ( check_rule_logic(Intel::indicator_rules[r], c) )
 			{
 				if (Intel::indicator_rules[r]$do_rules_notice) NOTICE( [$note=Intel::Rule_Notice, $conn=c, $msg=fmt("matched on rule: %s", Intel::indicator_rules[r]$rid)] );
 			}
 		}
 
-# FOR NOW.... combining nested rules and indicators is not supported. Only use rules of rules or rules of indicators. Don't cross the streams
-#		# If the rule consists of nested rules and indicators
-#		else if ( (|Intel::indicator_rules[r]$rids| > 0) && (|Intel::indicator_rules[r]$iids| > 0) )
-#		{
-#			if ( check_indicator_logic(Intel::indicator_rules[r], c) && check_rule_logic(Intel::indicator_rules[r], c) )
-#			{
-#				if (Intel::indicator_rules[r]$do_rules_notice) NOTICE( [$note=Intel::Rule_Notice, $conn=c, $msg=fmt("matched on rule: %s", Intel::indicator_rules[r]$rid)] );
-#			}
-#		}
+		# If the rule consists of nested rules and indicators
+		else if ( (|Intel::indicator_rules[r]$rids| > 0) && (|Intel::indicator_rules[r]$iids| > 0) )
+		{
+			# check it's indicator logic and it's rule logic, then notice
+			if ( (check_indicator_logic(Intel::indicator_rules[r], c)) && (check_rule_logic(Intel::indicator_rules[r], c)) )
+			{
+				if (Intel::indicator_rules[r]$do_rules_notice) NOTICE( [$note=Intel::Rule_Notice, $conn=c, $msg=fmt("matched on rule: %s", Intel::indicator_rules[r]$rid)] );
+			}
+		}
 
 		# If the rule consists of no nested rules and no indicators
 		else
