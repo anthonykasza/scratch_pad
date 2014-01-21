@@ -95,22 +95,14 @@ function Intel::check_indicator_logic(r: Rule, c: connection): bool
 		break;
 
 		case AND:
-		local state: bool = F;
 		for (each_iid in r$iids)
 		{
 			if (each_iid !in indicator_cache[c$uid])
 			{
-				state = F;
-				break;
-			} else {
-				state = T;
-				break;
+				return F;
 			}
 		}
-		if (state)
-		{
-			return T;
-		}
+		return T;
 		break;
 
 		case NONE:
@@ -172,23 +164,15 @@ function Intel::check_rule_logic(r: Rule, c: connection): bool
 		break;
 
 		case AND:
-		local state: bool = F;
 		for (each_rid in r$rids)
 		{
 			if (! check_indicator_logic(indicator_rules[each_rid], c) )
 			{
-				state = F;
+				return F;
 				break;
 			}
-			else
-			{
-				state = T;
-			}
 		}
-		if (state)
-		{
-			return T;
-		}
+		return T;
 		break;
 
 		case NONE:
