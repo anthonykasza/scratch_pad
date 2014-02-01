@@ -3,6 +3,13 @@ www.google.com	Intel::DOMAIN	my_special_source	F	HTTP::IN_HOST_HEADER	IID_1
 www.google.com	Intel::DOMAIN	my_special_source	F	DNS::IN_REQUEST	IID_2
 www.cnn.com	Intel::DOMAIN	my_special_source	F	HTTP::IN_HOST_HEADER	IID_3
 www.cnn.com	Intel::DOMAIN	my_special_source	F	DNS::IN_REQUEST	IID_4
+#
 Wget/1.13.4 (linux-gnu)	Intel::SOFTWARE	my_special_source	F	HTTP::IN_USER_AGENT_HEADER	IID_5
+#
 /foo	Intel::URL_PATH	my_special_source	F	HTTP::IN_URL_PATH	IID_6
 /bar	Intel::URL_PATH	my_special_source	F	HTTP::IN_URL_PATH	IID_7
+#
+200	Intel::RETURN_CODE	my_special_source	F	HTTP::IN_STATUS_CODE	HTTP_200
+302	Intel::RETURN_CODE	my_special_source	F	HTTP::IN_STATUS_CODE	HTTP_302
+404	Intel::RETURN_CODE	my_special_source	F	HTTP::IN_STATUS_CODE	HTTP_404
+500	Intel::RETURN_CODE	my_special_source	F	HTTP::IN_STATUS_CODE	HTTP_500
