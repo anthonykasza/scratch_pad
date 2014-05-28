@@ -256,3 +256,8 @@ event bro_init()
         print url_decode("%2525253Cscript%2525253Ealert%25252528%25252522hello%25252522%25252529%2525253B%2525253C%2525252Fscript%2525253E");
 }
 
+
+# we can probably only detect relfected xss attacks 
+# places to look for xss
+#	url params
+#	http bodys (forms)
