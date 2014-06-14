@@ -1,9 +1,10 @@
 module HTTP;
 
 export {
-
         global url_decode: function(s: string, iterations: count): string;
 	global url2char: table[string] of string = {
+		["%0A"]="\n",
+		["%0D"]="\r",
 		["%20"]=" ",
 		["%21"]="!",
 		["%22"]="\"",
@@ -251,13 +252,3 @@ function url_decode(s: string, iterations: count &default=5): string
 	return url_decode(s2, iterations-1);
 }
 
-event bro_init()
-{
-        print url_decode("%2525253Cscript%2525253Ealert%25252528%25252522hello%25252522%25252529%2525253B%2525253C%2525252Fscript%2525253E");
-}
-
-
-# we can probably only detect relfected xss attacks 
-# places to look for xss
-#	url params
-#	http bodys (forms)
