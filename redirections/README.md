@@ -1,3 +1,9 @@
+Track chains of DNS and HTTP connections cause by HTTP redirects
+==================================================================
+this is useful for analyzing drive by compromises, but can also be used to troubleshoot HTTP redirects
+
+
+
 try running
 	bro -Ci eth0 chains.bro
 
